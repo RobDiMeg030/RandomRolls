@@ -1,0 +1,34 @@
+
+[
+  {
+    "name": "Shortsword",
+    "description": "A simple iron shortsword, reliable in close combat.",
+    "action": "equip",
+    "gold_value": 25,
+    "buff_type": "attack",
+    "buff_value": 3,
+    "rarity": "common",
+    "tags": ["weapon", "equipment"]
+  },
+
+   {
+    "name": "Healing Potion",
+    "description": "Restores a small amount of health when consumed.",
+    "action": "consume",
+    "gold_value": 10,
+    "buff_type": "hp",
+    "buff_value": 20,
+    "rarity": "common",
+    "tags": ["consumable", "healing"]
+  },
+    {
+    "name": "Leather Armor",
+    "description": "Light armor offering basic protection without restricting movement.",
+    "action": "equip",
+    "gold_value": 40,
+    "buff_type": "defense",
+    "buff_value": 6,
+    "rarity": "uncommon",
+    "tags": ["armor", "equipment"]
+  }
+]
