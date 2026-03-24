@@ -1,6 +1,8 @@
 import random
 from action_class import *
 from npc_classes import *
+from item_class import *
+from player_class import *
 
 from sqlalchemy.sql.operators import truediv
 
@@ -25,40 +27,6 @@ class Room:
 
         }
         return description[self.type]
-
-#player class
-class Player:
-    def __init__(self):
-        self.hp= 25
-        self.attack=random.randint(3,7)
-        self.defense=random.randint(2,5)
-        self.inventory=[]
-
-## npc class
-class Npc:
-    def __init__(self,type):
-        self.type = type
-
-        stats={
-            "enemy": {
-                "name": "Goblin",
-                "hp": 12,
-                "attack": random.randint(1, 4),
-                "defense": random.randint(0, 2)
-            },
-            "boss": {
-                "name": "Dämonenlord",
-                "hp": 30,
-                "attack": random.randint(5, 8),
-                "defense": random.randint(2, 4)
-            }
-        }
-        npc_stats = stats[type]
-
-        self.name = npc_stats["name"]
-        self.hp = npc_stats["hp"]
-        self.attack = npc_stats["attack"]
-        self.defense = npc_stats["defense"]
 
 
 
@@ -100,11 +68,27 @@ class Dungeon:
 
 # test
 
+
+def load_items(path):
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    items = {}
+    for item_data in data:
+        item = Item.from_dict(item_data)
+        items[item.name] = item
+
+    return items
 ### main game
 
 def main():
     dungeon=Dungeon(size=6)
     player = Player()
+
+    ###test
+    potion = Item("Healing Potion", "consume")
+    player.inventory.append(potion)
+
     print("Welcome to Dungeon !!!")
     for i,room in enumerate(dungeon.rooms):
         print(f"{i}. {room.describe()}")
@@ -124,4 +108,7 @@ def main():
     print("LEVEL CLEARED !!!!!")
 
 if __name__ == "__main__":
+    items = load_items("items.json")
+    player=Player()
+
     main()

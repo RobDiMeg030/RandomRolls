@@ -1,10 +1,32 @@
+from item_class import *
+
 class Action:
     def __init__(self,name,function):
         self.name=name
         self.function=function
 
+    def pick_up(self,player,item:Item):
+        self.player.inventory.append(item)
+
+
+
     def use_item(self,player):
-        print("soon...")
+        has_item,item = player.choose_item()
+        if not has_item or item is None:
+            return False
+
+        if item.action=="equip":
+            player.equip(item)
+            player.buff_increase(item)
+            return True
+        elif item.action=="consume":
+            player.consume(item)
+            player.buff_increase(item)
+            player.inventory.remove(item)
+            return True
+
+
+
     def block(self,player):
         print("You brace yourself and block")
 

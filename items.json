@@ -30,5 +30,15 @@
     "buff_value": 6,
     "rarity": "uncommon",
     "tags": ["armor", "equipment"]
+  },
+  {
+    "name": "Ring of Gwlad",
+    "description": "A shiny red-golden ring forged from the fire of 100 dragons",
+    "action": "equip",
+    "gold_value": 100,
+    "buff_type": "luck",
+    "buff_value": 10,
+    "rarity": "uncommon",
+    "tags": ["equipment","artefact"]
   }
 ]

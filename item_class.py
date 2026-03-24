@@ -1,3 +1,5 @@
+import json
+
 class Item:
     def __init__(self, name, description="", action="", gold_value=0,
                  buff_type=None, buff_value=0, rarity="common", tags=None):
@@ -9,3 +11,13 @@ class Item:
         self.buff_value = int(buff_value)
         self.rarity = rarity
         self.tags = list(tags) if tags is not None else []
+
+    @classmethod
+    def from_dict(cls, data):
+        return cls(**data)
+
+
+
+
+
+
