@@ -12,8 +12,15 @@ class Action:
 
     def use_item(self,player):
         has_item,item = player.choose_item()
+        item = ITEMS[id]
+
+        print("DEBUG item, got:", item, type(item))
+        print("DEBUG use_item, got:", has_item, type(has_item))
+        print("DEBUG item.action, got:", item.action, type(item.action))
         if not has_item or item is None:
             return False
+
+
 
         if item.action=="equip":
             player.equip(item)
@@ -22,6 +29,11 @@ class Action:
         elif item.action=="consume":
             player.consume(item)
             player.buff_increase(item)
+
+            print("DEBUG item:", item)
+            print("DEBUG inventory:", player.inventory)
+            print("DEBUG item in inventory:", item in player.inventory)
+
             player.inventory.remove(item)
             return True
 

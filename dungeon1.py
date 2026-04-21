@@ -68,26 +68,25 @@ class Dungeon:
 
 # test
 
-
-def load_items(path):
-    with open(path, "r", encoding="utf-8") as f:
+def load_items():
+    global ITEMS
+    with open("items.json") as f:
         data = json.load(f)
 
-    items = {}
     for item_data in data:
-        item = Item.from_dict(item_data)
-        items[item.name] = item
+        item_id = item_data["id"]
+        ITEMS[item_id] = Item.from_json(item_data)
 
-    return items
 ### main game
 
 def main():
     dungeon=Dungeon(size=6)
     player = Player()
+    load_items()
 
     ###test
-    potion = Item("Healing Potion", "consume")
-    player.inventory.append(potion)
+
+    player.inventory.append(ITEMS["healing_potion"])
 
     print("Welcome to Dungeon !!!")
     for i,room in enumerate(dungeon.rooms):
@@ -108,7 +107,7 @@ def main():
     print("LEVEL CLEARED !!!!!")
 
 if __name__ == "__main__":
-    items = load_items("items.json")
+    load_items()
     player=Player()
 
     main()

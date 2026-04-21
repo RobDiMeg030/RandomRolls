@@ -1,6 +1,7 @@
 
 [
   {
+    "id": "shortsword",
     "name": "Shortsword",
     "description": "A simple iron shortsword, reliable in close combat.",
     "action": "equip",
@@ -12,6 +13,7 @@
   },
 
    {
+     "id": "healing_potion",
     "name": "Healing Potion",
     "description": "Restores a small amount of health when consumed.",
     "action": "consume",
@@ -22,6 +24,7 @@
     "tags": ["consumable", "healing"]
   },
     {
+      "id": "leather_armor",
     "name": "Leather Armor",
     "description": "Light armor offering basic protection without restricting movement.",
     "action": "equip",
@@ -32,13 +35,14 @@
     "tags": ["armor", "equipment"]
   },
   {
+    "id": "ring_of_gwald",
     "name": "Ring of Gwlad",
     "description": "A shiny red-golden ring forged from the fire of 100 dragons",
     "action": "equip",
     "gold_value": 100,
     "buff_type": "luck",
     "buff_value": 10,
-    "rarity": "uncommon",
+    "rarity": "epic",
     "tags": ["equipment","artefact"]
   }
 ]

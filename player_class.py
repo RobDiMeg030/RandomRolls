@@ -20,8 +20,10 @@ class Player:
             return False, None
         if len(self.inventory)<3:
             print("You have following Items in your inventory:")
-            for i,item in enumerate(self.inventory, start=1):
-                print(f"{i}. {item.name}")
+            for i,id in enumerate(self.inventory, start=1):
+                #print(id.id)
+                #print(self.inventory)
+                print(f"{i}. {ITEMS[id.id].name}")
 
             while True:
                 choice = input("Which item do you want to use? Enter number: ")
@@ -35,7 +37,7 @@ class Player:
                 if 1 <= choice <= len(self.inventory):
                     selected_item = self.inventory[choice - 1]
                     print(f"You selected: {selected_item.name}")
-                    return True, selected_item
+                    return True, self.inventory[choice - 1]
                 else:
                     print("Number out of range. Try again.")
 
@@ -58,5 +60,5 @@ class Player:
         elif item.buff_type=="hp":
             self.hp+=item.buff_value
 
-
+# invertor=[Item["healing"],Item["Sword"]]
 
