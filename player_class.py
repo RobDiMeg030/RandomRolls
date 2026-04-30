@@ -58,6 +58,7 @@ class Player:
         elif item.buff_type=="defense":
             self.defense+=item.buff_value
         elif item.buff_type=="hp":
+            print("HP Healed")
             self.hp+=item.buff_value
 
 # invertor=[Item["healing"],Item["Sword"]]
